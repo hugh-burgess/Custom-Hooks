@@ -12,11 +12,20 @@ function App() {
 
   function handleChange(event) {
     const { value, name } = event.target;
+    setUserData({ ...userData, [name]: value });
     console.log(`${name}: ${value}`);
+  }
+
+  function handleNewsletterChange(event) {
+    const { checked, name } = event.target;
+    setUserData({ ...userData, [name]: checked });
+    console.log(`isChecked: ${checked}`);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+    console.log(userData);
+
     console.log("submitted");
   }
 
@@ -27,31 +36,36 @@ function App() {
       <form onSubmit={handleSubmit}>
         <label htmlFor="firstName">Name:</label>
         <input
-          value={value}
+          value={userData.firstName}
           onChange={handleChange}
           type="text"
           name="firstName"
         />
         <label htmlFor="lastName">Surname:</label>
         <input
-          value={value}
+          value={userData.lastName}
           onChange={handleChange}
           type="text"
           name="lastName"
         />
         <label htmlFor="age">Age:</label>
-        <input value={value} onChange={handleChange} type="number" name="age" />
+        <input
+          value={userData.age}
+          onChange={handleChange}
+          type="number"
+          name="age"
+        />
         <label htmlFor="email">Email:</label>
         <input
-          value={value}
+          value={userData.email}
           onChange={handleChange}
           type="email"
           name="email"
         />
         <div className="newsletter">
           <input
-            checked={value}
-            onChange={handleChange}
+            checked={userData.newsletter}
+            onChange={handleNewsletterChange}
             type="checkbox"
             name="newsletter"
           />

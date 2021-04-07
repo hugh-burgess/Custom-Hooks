@@ -26,18 +26,40 @@ function App() {
       <h2>Enter user credentials below:</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="firstName">Name:</label>
-        <input type="text" name="firstName" />
+        <input
+          value={value}
+          onChange={handleChange}
+          type="text"
+          name="firstName"
+        />
         <label htmlFor="lastName">Surname:</label>
-        <input type="text" name="lastName" />
+        <input
+          value={value}
+          onChange={handleChange}
+          type="text"
+          name="lastName"
+        />
         <label htmlFor="age">Age:</label>
-        <input type="number" name="age" />
+        <input value={value} onChange={handleChange} type="number" name="age" />
         <label htmlFor="email">Email:</label>
-        <input type="email" name="email" />
+        <input
+          value={value}
+          onChange={handleChange}
+          type="email"
+          name="email"
+        />
         <div className="newsletter">
-          <input type="checkbox" name="newsletter" />
+          <input
+            checked={value}
+            onChange={handleChange}
+            type="checkbox"
+            name="newsletter"
+          />
           <label htmlFor="newsletter">
             Yes, I would like many more emails!
           </label>
+          <br />
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>

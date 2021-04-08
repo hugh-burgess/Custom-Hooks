@@ -5,7 +5,7 @@ function App() {
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
-    age: 0,
+    age: undefined,
     email: "",
     newsletter: false,
   });
@@ -25,8 +25,16 @@ function App() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(userData);
-
     console.log("submitted");
+    const form = event.target;
+    setUserData({
+      firstName: "",
+      lastName: "",
+      age: 0,
+      email: "",
+      newsletter: false,
+    });
+    form.reset();
   }
 
   return (
